@@ -237,10 +237,36 @@
   font-weight: 800;
 }
 
+.bee-description-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
 .bee-description {
   font-size: 14px;
   color: #4b5563;
   line-height: 1.6;
+  text-align: center;
+  margin: 0;
+}
+
+.detail-button {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.detail-button:hover {
+  background: #e5e7eb;
+  border-color: #9ca3af;
 }
 
 .restart-wrap { padding: 18px 22px 24px 22px; }
@@ -471,3 +497,41 @@
 }
 .modal-btn.primary { background: #111827; color: #fff; border-color: #111827; }
 .modal-btn.secondary { background: #f3f4f6; color: #111827; border-color: #e5e7eb; }
+
+/* 결과 상세보기 모달 */
+.result-detail-modal {
+  max-width: 480px;
+}
+
+.result-detail-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.detail-bee-image {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  border-radius: 16px;
+}
+
+.detail-text {
+  text-align: center;
+}
+
+.detail-bee-type {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 12px 0;
+}
+
+.detail-description {
+  font-size: 15px;
+  color: #4b5563;
+  line-height: 1.7;
+  margin: 0;
+  white-space: pre-line;
+}

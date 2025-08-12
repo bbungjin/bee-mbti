@@ -118,6 +118,9 @@ function App() {
   const [isNewsletterOpen, setIsNewsletterOpen] = useState(false)
   const [email, setEmail] = useState('')
   const [emailError, setEmailError] = useState('')
+  
+  // 결과 상세보기 모달 상태
+  const [isResultDetailOpen, setIsResultDetailOpen] = useState(false)
 
   const handleStart = () => {
     setCurrentStep('question')
@@ -205,6 +208,13 @@ function App() {
   }
   const closeNewsletter = () => {
     setIsNewsletterOpen(false)
+  }
+  
+  const openResultDetail = () => {
+    setIsResultDetailOpen(true)
+  }
+  const closeResultDetail = () => {
+    setIsResultDetailOpen(false)
   }
   const submitNewsletter = () => {
     const ok = /.+@.+\..+/.test(email)
@@ -305,7 +315,14 @@ function App() {
                     <h3 className="mbti-type">{finalResult.mbti}</h3>
                   </div>
                 </div>
-                <p className="bee-description">{finalResult.description}</p>
+                <div className="bee-description-container">
+                  <p className="bee-description">
+                    {finalResult.description.split('\n')[0]}...
+                  </p>
+                  <button className="detail-button" onClick={openResultDetail}>
+                    자세히 보기
+                  </button>
+                </div>
               </div>
               <div className="restart-wrap">
                 <button className="restart-button" onClick={handleRestart}>다시 테스트하기</button>
@@ -341,6 +358,33 @@ function App() {
               <button className="modal-btn secondary" onClick={closeNewsletter}>취소</button>
               <button className="modal-btn primary" onClick={submitNewsletter}>구독하기</button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {isResultDetailOpen && (
+        <div className="modal-overlay" role="dialog" aria-modal="true">
+          <div className="modal result-detail-modal">
+            <div className="modal-header">
+              <h3>{finalResult?.beeType} - {finalResult?.mbti}</h3>
+              <button className="modal-close" onClick={closeResultDetail} aria-label="닫기">×</button>
+            </div>
+            <div className="modal-body">
+              <div className="result-detail-content">
+                <img 
+                  src={`${import.meta.env.BASE_URL}mbti-bee/${finalResult?.mbti.toLowerCase()}.png`} 
+                  alt={`${finalResult?.mbti} 벌`} 
+                  className="detail-bee-image"
+                />
+                <div className="detail-text">
+                  <h4 className="detail-bee-type">{finalResult?.beeType}</h4>
+                  <p className="detail-description">{finalResult?.description}</p>
+                </div>
+              </div>
+            </div>
+            {/* <div className="modal-actions">
+              <button className="modal-btn primary" onClick={closeResultDetail}>닫기</button>
+            </div> */}
           </div>
         </div>
       )}
