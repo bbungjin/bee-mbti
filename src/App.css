@@ -19,7 +19,7 @@
 .card {
   width: 100%;
   height: 100%;
-  background: #ffffff; /* 카드 배경 흰색 */
+  background: #ffc92c; /* 카드 배경 흰색 */
   border-radius: 28px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.06);
   display: flex;
@@ -30,6 +30,7 @@
 /***** 상단 헤더 & 진행률 *****/
 .header {
   padding: 20px 22px 0 22px;
+  position: relative;
 }
 
 .title {
@@ -39,10 +40,33 @@
   letter-spacing: -0.2px;
 }
 
+.bee-logo {
+  width: 200px;
+  height: 200px;
+  margin: 20px auto 12px auto;
+  display: block;
+  border: 1px solid #000000;
+}
+
+.cute-bee {
+  width: 200px;
+  height: 200px;
+  margin: 20px auto 12px auto;
+  display: block;
+  /* border: 1px solid #000000; */
+  /* width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 350px;
+  right: 20px;
+  z-index: 10;
+  object-fit: contain; */
+}
+
 .subtitle {
   margin-top: 6px;
-  font-size: 14px;
-  color: #6b7280;
+  font-size: 20px;
+  color: #000000;
   line-height: 1.3;
 }
 
@@ -80,6 +104,9 @@
   flex-direction: column;
   justify-content: center;
   padding: 20px 22px;
+  min-height: 0;
+  overflow: visible;
+  position: relative;
 }
 
 .question-text {
@@ -179,15 +206,33 @@
   padding: 22px;
 }
 
+.result-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.result-bee-image {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.result-text {
+  flex: 1;
+}
+
 .bee-type {
-  font-size: 22px;
-  margin-bottom: 8px;
+  font-size: 20px;
+  margin-bottom: 6px;
   color: #111827;
 }
 
 .mbti-type {
-  font-size: 16px;
-  margin-bottom: 12px;
+  font-size: 18px;
+  margin-bottom: 0;
   color: #2563eb;
   font-weight: 800;
 }
@@ -251,14 +296,22 @@
 .question-viewport {
   position: relative;
   width: 100%;
-  min-height: 200px;
-  overflow: hidden;
+  height: 400px;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .question-panel {
   position: relative;
   width: 100%;
+  height: 100%;
   will-change: transform, opacity;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* 방향별 진입/이탈 */
@@ -291,7 +344,10 @@
   align-items: center;
   text-align: center;
   gap: 10px;
-  margin: 8px 0 14px 0;
+  margin: 0;
+  height: 150px;
+  width: 100%;
+  max-width: 350px;
 }
 .q-number {
   font-size: 44px;
@@ -303,22 +359,32 @@
   font-size: 22px;
   color: #111827;
   line-height: 1.5;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 /* ===== 답변 버튼(높이 크게, 두 줄 이상 방지) ===== */
 .answer-buttons {
-  margin-top: 14px;
+  margin-top: 20px;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 14px;
+  gap: 16px;
+  width: 100%;
+  max-width: 350px;
 }
 .answer-button {
-  min-height: 72px; /* 높이 확대 */
-  padding: 16px 18px;
+  height: 80px; /* 높이 고정 */
+  padding: 18px 20px;
   font-size: 16px;
-  white-space: nowrap;
+  white-space: normal;
   overflow: hidden;
   text-overflow: ellipsis;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 /* ===== 결과 섹션: 뉴스레터 버튼 ===== */
