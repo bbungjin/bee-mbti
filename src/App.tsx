@@ -226,8 +226,8 @@ function App() {
           <>
             <div className="header">
               <h1 className="title">🐝 꿀비티아이</h1>
-              <img src="/bee_logo.png" alt="Bee Logo" className="bee-logo" />
-              <img src="/cute_bee-removebg-preview.png" alt="Cute Bee" className="cute-bee" />
+              <img src={`${import.meta.env.BASE_URL}bee_logo.png`} alt="Bee Logo" className="bee-logo" />
+              <img src={`${import.meta.env.BASE_URL}cute_bee-removebg-preview.png`} alt="Cute Bee" className="cute-bee" />
               <p className="subtitle">10가지 질문으로<br />당신의 벌 성향을 알아보세요!</p>
             </div>
             <div className="start-screen">
@@ -295,7 +295,7 @@ function App() {
             <div className="result-screen">
               <div className="result-content">
                   <img 
-                    src={`/mbti-bee/${finalResult.mbti.toLowerCase()}.png`} 
+                    src={`${import.meta.env.BASE_URL}mbti-bee/${finalResult.mbti.toLowerCase()}.png`} 
                     alt={`${finalResult.mbti} 벌`} 
                     className="result-bee-image"
                   />
